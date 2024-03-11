@@ -1,0 +1,191 @@
+import java.util.*;
+class Mobile 
+{
+	private String name;
+	private String colour;
+	private int ram;
+	private int rom;
+	private float price;
+	Mobile(String name, String colour,int ram,int rom,float price)
+	{
+		this.name=name;
+		this.colour=colour;
+		this.ram=ram;
+		this.rom=rom;
+		this.price=price;
+	}
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public void setColour(String colour)
+	{
+		this.colour=colour;
+	}
+	public void setRam(int ram)
+	{
+		this.ram=ram;
+	}
+	public void setRom(int rom)
+	{
+		this.rom=rom;
+	}
+	public void setPrice(float price)
+	{
+		this.price=price;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getColour()
+	{
+		return colour;
+	}
+	public int getRam()
+	{
+		return ram;
+	}
+	public int getRom()
+	{
+		return rom;
+	}
+	public float getPrice()
+	{
+		return price;
+	}
+	public void display()
+	{
+		System.out.println("_______________________________________");
+		System.out.println(name);
+		System.out.println(colour);
+		System.out.println(ram);
+		System.out.println(rom);
+		System.out.println(price);
+		System.out.println("_______________________________________");
+	}
+}
+class MobileDrivers1
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		Mobile m=null;
+		boolean res=true;
+		do
+		{
+			System.out.println("1.Add\n2.Display Price\n3.Display all details\n4.change the details\n5.exit");
+			int n=sc.nextInt();
+			switch(n)
+			{
+				case 1:
+				{
+					System.out.println("_____________________________________________");
+					System.out.println("Enter the mobile name : ");
+					String name=sc.next();
+					System.out.println("Enter the mobile colour : ");
+					String colour=sc.next();
+					System.out.println("Enter the ram of the mobile : ");
+					int ram=sc.nextInt();
+					System.out.println("Enter the rom of the mobile : ");
+					int rom=sc.nextInt();
+					System.out.println("Enter the price of the mobile : ");
+					float price=sc.nextFloat();
+					m=new Mobile(name,colour,ram,rom,price);
+					System.out.println("_____________________________________________");
+				}
+				break;
+				case 2:
+				{
+					if(m!=null)
+					{System.out.println("_______________________________________");
+						System.out.println(m.getPrice());
+						System.out.println("_______________________________________");
+					}
+					else
+					{
+						System.out.println("_______________________________________\n");
+						System.out.println("No Data found in mobile application\n");
+						System.out.println("_______________________________________");
+					}
+				}
+				break;
+				case 3:
+				{
+					if(m!=null)
+					{
+						System.out.println("_______________________________________");
+						m.display();
+						System.out.println("_______________________________________");
+					}
+					else
+					{
+						System.out.println("_______________________________________\n");
+						System.out.println("No Data found in mobile application\n");
+						System.out.println("_______________________________________");
+					}
+				}
+				break;
+				case 4:
+				{
+					if(m==null)
+					{
+						System.out.println("_______________________________________\n");
+						System.out.println("No data found in mobile applications\n");
+						System.out.println("_______________________________________");
+					}
+					else
+					{
+						System.out.println("________________________________________________");
+						System.out.println("old mobile name :  "+m.getName());
+						System.out.println("Enter the new Mobile name ");
+						String name=sc.next();
+						m.setName(name);
+						System.out.println("Modified mobile name :  "+m.getName());
+						System.out.println("________________________________________________");
+						System.out.println("old mobile colour :  "+m.getColour());
+						System.out.println("Enter the new Mobile colour ");
+						String colour=sc.next();
+						m.setColour(colour);
+						System.out.println("Modified mobile Colour :  "+m.getColour());
+						System.out.println("________________________________________________");
+						System.out.println("old mobile Ram :  "+m.getRam());
+						System.out.println("Enter the new Mobile Ram ");
+						int ram=sc.nextInt();
+						m.setRam(ram);
+						System.out.println("Modified mobile Ram :  "+m.getRam());
+						System.out.println("________________________________________________");
+						System.out.println("old mobile Rom :  "+m.getRom());
+						System.out.println("Enter the new Mobile Rom ");
+						int rom=sc.nextInt();
+						m.setRom(rom);
+						System.out.println("Modified mobile Rom :  "+m.getRom());
+						System.out.println("________________________________________________");
+						System.out.println("old mobile price :  "+m.getPrice());
+						System.out.println("Enter the new Mobile Price ");
+						float price=sc.nextFloat();
+						m.setPrice(price);
+						System.out.println("Modified mobile Price :  "+m.getPrice());
+						System.out.println("________________________________________________");
+					}
+				}
+				break;
+				case 5:
+				{
+					res=false;
+					System.out.println("_______________________________________");
+					System.out.println("thank you visit again :)");
+					System.out.println("_______________________________________");
+				}
+				break;
+				default :
+				{
+					System.out.println("_______________________________________");
+					System.out.println("Invalid Choosing Option ");
+					System.out.println("_______________________________________");
+				}
+			}
+		}
+		while (res);
+	}
+}
